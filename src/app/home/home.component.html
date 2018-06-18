@@ -1,0 +1,60 @@
+<div class="container">
+<mat-tab-group>
+  <mat-tab label="Welcome">
+    <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+  
+  </mat-tab>
+  <mat-tab label="Tab 2"><br>
+    <h1>
+      <i class="wi wi-barometer"></i> Your Local Weather Forecast
+    </h1>
+    
+    <p>Current Position: {{ lat }} / {{ lng }} </p>
+    
+    <button (click)="getForecast()">Get Forecast</button>
+    
+    <h1>Seven Day Forecast</h1>
+    
+    <div *ngIf="forecast | async as f" class="columns">
+        <div *ngFor="let day of f.daily.data" class="column">
+    
+            <i [class]="weatherIcon(day.icon)"></i>
+            <h3>{{ day.time * 1000 | date: 'MMM d'  }}</h3>
+            <p>{{ day.summary }}</p>
+    
+        </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+<div class="eventButtons">
+    <!-- <button mat-button class="events"><span>Bike Tours</span></button><br>
+    <button mat-button class="events" routerLink ="/events"><span>Events</span></button><br>
+    <button mat-button class="events"><span>News</span></button> -->
+    <li><a href="#" class="round orange">Login<span class="round">That is, if you already have an account.</span></a></li><br><br><br>
+  <li><a href="#" class="round orange">Sign Up<span class="round">But only if you really, really want to. </span></a></li><br><br><br>
+	<li><a routerLink="/events" class="round orange">Events<span class="round">Take a look at our events. </span></a></li>
+</div>
+</div>

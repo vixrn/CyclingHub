@@ -1,0 +1,9 @@
+.container{
+    background-color: transparent;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+}
+mat-horizontal-stepper{
+    background-color: transparent;
+}

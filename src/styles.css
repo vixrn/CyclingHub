@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body { 
+  margin: 0;
+  background-color: #323232;
+}
+
+.mat-tab-body{
+  color: white;
+}
+
+.mat-tab-label .mat-tab-label-content{
+    color: white;
+
+}
+.mat-tab-label{
+  background-color: #EE7600;
+  /* border-right: solid 2.2px grey; */
+  opacity: 1 !important;
+}s
+.mat-tab-label:hover{
+  opacity: 0.8 !important;
+}
+.mat-ink-bar{
+  background-color: black !important;
+}
+.mat-step-label{
+  color: white !important;
+}
+.mat-horizontal-stepper-content {
+  color: #EE7600 !important;
+}
+.mat-input-element{
+  color: #EE7600 !important;
+}
+.mat-form-field-label{
+  color: white !important;
+}
+/* .mat-button{
+  border: solid 2px black !important;
+} */
+.mat-button:hover{
+  color: #EE7600;
+}
+.mat-form-field{
+  margin-right: 10%;
+}
+.mat-stepper-horizontal-line{
+  border-top-color: #EE7600 ;
+}
+.mat-form-field-underline{
+  background-color: #EE7600  !important;
+}
+.mat-step-icon{
+  background-color: #EE7600  !important;
+}
+::-webkit-scrollbar{
+  width: 1em;
+  background-color: #323232;
+}
+::-webkit-scrollbar-track {
+  box-shadow: 5px 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(245, 239, 239, 0.3); 
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: 5px 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(245, 241, 238, 0.5); 
+  background-color: #EE7600;	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}
+.forecast-navigation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-bar {
+  background-color: grey;
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

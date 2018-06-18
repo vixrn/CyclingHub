@@ -1,0 +1,91 @@
+ <!-- <ul>
+    <p>test</p>
+    <li *ngFor="let event of events">
+      <br> {{event.Name}}
+      <br> {{event.Times.Day1}}
+      <br> {{event.Times.Day2}}
+    </li>
+  </ul><br><br><br>  -->
+<div class="container">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Provide your details</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Address Line 1" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Address Line 2" formControlName="firstCtrl">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Town" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Postcode" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Country" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input class="right" matInput placeholder="Telephone" formControlName="firstCtrl">
+        </mat-form-field>
+        <mat-form-field>
+          <input class="right" matInput placeholder="Mobile" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Which events are you interested in?</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Event 1" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Event 2" formControlName="secondCtrl">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Event 3" formControlName="secondCtrl">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Event 4" formControlName="secondCtrl">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Event 5" formControlName="secondCtrl">
+        </mat-form-field>
+        <br>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      All details have been provided please save or reset. Use back if you made a mistake or want to add details.
+      <br>
+      <br>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button>Save</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
