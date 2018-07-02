@@ -77,15 +77,3 @@ body {
 											  transparent 75%,
 											  transparent)
 }
-.forecast-navigation-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-bar {
-  background-color: grey;
-  height: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}

@@ -42,7 +42,7 @@ import {
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import { WeatherService } from './weather.service';
+import DarkSkyApi from 'dark-sky-api';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -109,7 +109,7 @@ import { EventsComponent } from './events/events.component';
       apiKey: 'AIzaSyDw75q7jfOj7D413d956C1NTMWN8oDqP6I'
     }),
   ],
-  providers: [WeatherService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

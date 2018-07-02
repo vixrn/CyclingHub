@@ -26,6 +26,7 @@
     "@types/pouchdb": "^6.3.2",
     "angular2-image-gallery": "^1.0.1",
     "core-js": "^2.5.4",
+    "dark-sky-api": "^0.6.3",
     "hammerjs": "^2.0.8",
     "pouchdb": "^6.4.3",
     "rxjs": "^6.0.0",

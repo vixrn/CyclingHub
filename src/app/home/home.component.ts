@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../weather.service';
+import { WeatherService, Weather } from '../weather.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do'
 
@@ -10,13 +10,18 @@ import 'rxjs/add/operator/do'
 })
 export class HomeComponent implements OnInit {
 
+  info: Observable<Weather[]>;
+
   lat: number;
   lng: number;
-  forecast: Observable<any>;
+  city: string;
 
-  constructor(private weather: WeatherService) { }
+  constructor(private _weatherService: WeatherService) { }
 
   ngOnInit() {
+
+    this.info = this._weatherService.info;
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
        this.lat = position.coords.latitude;
@@ -29,22 +34,21 @@ export class HomeComponent implements OnInit {
    }
   }
 
-  getForecast() {
-    this.forecast = this.weather.currentForecast(this.lat, this.lng)
-      .do(data => console.log(data))
+  getForecast(city: string) {
+    this._weatherService.currentForecastCity(city);
   }
 
-  weatherIcon(icon) {
-    switch (icon) {
-      case 'partly-cloudy-day':
-        return 'wi wi-day-cloudy'
-      case 'clear-day':
-        return 'wi wi-day-sunny'
-      case 'partly-cloudy-night':
-        return 'wi wi-night-partly-cloudy'
-      default:
-        return `wi wi-day-sunny`
-    }
-  }
+  // weatherIcon(icon) {
+  //   switch (icon) {
+  //     case 'partly-cloudy-day':
+  //       return 'wi wi-day-cloudy'
+  //     case 'clear-day':
+  //       return 'wi wi-day-sunny'
+  //     case 'partly-cloudy-night':
+  //       return 'wi wi-night-partly-cloudy'
+  //     default:
+  //       return `wi wi-day-sunny`
+  //   }
+  // }
 
 }
