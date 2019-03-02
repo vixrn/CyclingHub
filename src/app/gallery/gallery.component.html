@@ -1,0 +1,47 @@
+<h3 class="cat-title">
+  <span>Tours</span>
+</h3>
+<section>
+  <br>
+  <div class="my-app-custom-plain-container-with-desc">
+    <ng-container *ngFor="let img of imagesRect">
+      <figure class="my-app-custom-image-with-desc">
+        <img class="galleryImage" alt="Image unavailable. Please try again later!" [src]="img.modal.img" (click)="openImageModalRowDescription(img)"
+        />
+        <figcaption class="description">{{img.modal.description ? img.modal.description : 'No description available'}}
+        </figcaption>
+      </figure>
+    </ng-container>
+  </div>
+  <ks-modal-gallery [id]="8" [modalImages]="imagesRect" [plainGalleryConfig]="customPlainGalleryRowDescConfig"></ks-modal-gallery>
+</section>
+
+<section style="clear: both">
+  <h3 class="cat-title">
+    <span class="span2">Bikes</span>
+  </h3>
+  <br>
+  <div class="my-app-custom-plain-container-with-desc">
+    <ng-container *ngFor="let img of bikes">
+      <figure class="my-app-custom-image-with-desc">
+        <img class="galleryImage" alt="Image unavailable. Please try again later!" [src]="img.modal.img" (click)="openImageModalRowDescription(img)"
+        />
+        <figcaption class="description">{{img.modal.description ? img.modal.description : 'No description available'}}
+        </figcaption>
+      </figure>
+    </ng-container>
+  </div>
+  <ks-modal-gallery [id]="8" [modalImages]="bikes" [plainGalleryConfig]="customPlainGalleryRowDescConfig"></ks-modal-gallery>
+</section>
+
+<section>
+  <h3 class="cat-title">
+    <span class="span3">Equipment</span>
+  </h3>
+</section>
+
+<section>
+  <h3 class="cat-title">
+    <span class="span4">Others</span>
+  </h3>
+</section>

@@ -1,14 +1,14 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav>
-    <button mat-button class="sidemenu" (click)="sidenav.toggle()">Hide Menu</button>
-    <button mat-button class="sidemenu" routerLink="/home">Home</button>
-    <button mat-button class="sidemenu">About</button>
-    <button mat-button class="sidemenu" routerLink="/contact">Contact</button>
-    <button mat-button class="sidemenu">Bikes</button>
-    <button mat-button class="sidemenu">Gallery</button>
+    <button mat-button matTooltip="Hide the menu" matTooltipPosition="right" matTooltipClass="hide" class="sidemenu" class="first" (click)="sidenav.toggle()">Hide Menu</button>
+    <button mat-button class="sidemenu" routerLink="/home" (click)="sidenav.toggle()">Home</button>
+    <button mat-button class="sidemenu" (click)="sidenav.toggle()">About</button>
+    <button mat-button class="sidemenu" routerLink="/contact" (click)="sidenav.toggle()">Contact</button>
+    <button mat-button class="sidemenu" routerLink="/bikes" (click)="sidenav.toggle()">Bikes</button>
+    <button mat-button class="sidemenu" routerLink="/gallery" (click)="sidenav.toggle()">Gallery</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <button mat-button (click)="sidenav.toggle()">Menu</button>
+    <button mat-button matTooltip="Show the menu" matTooltipPosition="below" matTooltipClass="show" (click)="sidenav.toggle()">Menu</button>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService, Weather } from '../weather.service';
+import { WeatherService } from '../weather.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do'
 
@@ -10,7 +10,10 @@ import 'rxjs/add/operator/do'
 })
 export class HomeComponent implements OnInit {
 
-  info: Observable<Weather[]>;
+  weather: any;
+  currentLocation: any;
+  time: number = 0;
+  interval;
 
   lat: number;
   lng: number;
@@ -19,36 +22,26 @@ export class HomeComponent implements OnInit {
   constructor(private _weatherService: WeatherService) { }
 
   ngOnInit() {
-
-    this.info = this._weatherService.info;
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-       this.lat = position.coords.latitude;
-       this.lng = position.coords.longitude;
-     });
-   } else {
-     /// default coords
-    this.lat = 40.73;
-    this.lng = -73.93;
-   }
+    this.refreshData()
   }
 
   getForecast(city: string) {
     this._weatherService.currentForecastCity(city);
   }
-
-  // weatherIcon(icon) {
-  //   switch (icon) {
-  //     case 'partly-cloudy-day':
-  //       return 'wi wi-day-cloudy'
-  //     case 'clear-day':
-  //       return 'wi wi-day-sunny'
-  //     case 'partly-cloudy-night':
-  //       return 'wi wi-night-partly-cloudy'
-  //     default:
-  //       return `wi wi-day-sunny`
-  //   }
-  // }
-
+  private refreshData(): void {
+    this.weather = this._weatherService.info
+    this.currentLocation = this._weatherService.info2
+    this.subscribeToData();
+  }
+  private subscribeToData(): void {
+    this.interval = setInterval(() =>{
+      if(this.time != 1){
+        this.time++
+      }else{
+        this.time = 0
+        this.refreshData()
+      }
+    }, 1000)
+  }
 }
+

@@ -40,15 +40,19 @@
         <button class="submit" (click)="getForecast(current.value);">submit</button>
       </div>
       <div>
-        <h1>test</h1>
-        <ul *ngFor="let inf of info">
-          <li >
-            {{inf.name}}
-            {{info.name}}
-            {{inf.main.temp}}
-            {{info.main.temp}}
-          </li>
-        </ul>
+        <h1>{{weather?.city?.name}}</h1>
+        <p>{{weather?.city?.country}}</p>
+        <p>{{weather?.city?.coord.lat}} {{weather?.city?.coord.lon}}</p>
+        <p>{{weather?.list[0].main.temp}}</p>
+        <p>{{weather?.list[0].weather[0].description}}</p>
+      </div>
+      <div>
+        <h1>{{currentLocation?.name}}</h1>
+        <p>{{currentLocation?.sys?.country}}</p>
+        <p>{{currentLocation?.coord?.lat}} {{currentLocation?.coord?.lon}}</p>
+        <p>{{currentLocation?.main.temp}}</p>
+        <p>{{currentLocation?.weather[0].main}}</p>
+        <p>{{currentLocation?.weather[0].description}}</p>
       </div>
     </mat-tab>
   </mat-tab-group>

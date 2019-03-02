@@ -1,0 +1,83 @@
+
+  .my-app-custom-plain-container-with-desc {
+    align-items: center;
+  }
+  .my-app-custom-plain-container-with-desc figure {
+    position: relative;
+    float: left;
+  }
+  .my-app-custom-plain-container-with-desc figure img {
+    width: 407px;
+    height: 250px;
+    cursor: pointer;
+  }
+  .my-app-custom-plain-container-with-desc figure figcaption {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-size: 85%;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    right: 0;
+  }
+  .my-app-custom-plain-container-with-desc .description {
+    font-weight: bold;
+    text-align: center;
+  }
+  .my-app-custom-plain-container-with-desc .my-app-custom-image-with-desc {
+    height: auto;
+    width: auto;
+    margin-left: 2px;
+    left:4%;
+    align-self: start;
+  }
+  .cat-title{
+    text-align: center;
+    font-size: 28px;
+  }
+  span {
+    line-height: 0.5;
+    text-align: center;
+    color: #EE7600;
+    margin-top: 2%;
+  }
+span {
+    display: inline-block;
+    position: relative;  
+  }
+span:before,
+span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    top: 0;
+    width: 1200%;
+  }
+span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+  .span2:before {
+      width: 1280%;
+    }
+  .span2:after{
+      width: 1280%;
+    }
+    .span3:before {
+    width: 600%;
+  }
+  .span3:after{
+    width: 600%;
+  }
+  .span4:before {
+    width: 1005%;
+  }
+  .span4:after{
+    width: 1005%;
+  }

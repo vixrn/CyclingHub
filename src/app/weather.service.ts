@@ -1,70 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-
-export interface Weather {
-  base: string;
-  clouds: Clouds[];
-  cod: string;
-  coord: Coord[];
-  dt: string;
-  id: string;
-  main: Main[];
-  name: string;
-  sys: Sys[];
-  visibility: string;
-  weather: WeatherInfo[];
-  wind: Wind[];  
-}
-
-export interface Coord {
-  lon: number;
-  lat: number;
-}
-export interface WeatherInfo {
-  id: number;
-  main: string;
-  description: string;
-  icon: number;
-}
-export interface Main {
-  temp: string;
-  pressure: number;
-  humidity: number;
-  temp_min: number;
-  temp_max: number;
-}
-export interface Wind {
-  speed: number;
-  deg: number;
-}
-export interface Clouds {
-  all: number;
-}
-export interface Sys {
-  type: number;
-  id: number;
-  message: string;
-  country: string;
-  sunrise: number;
-  sunset: number;
-}
+import { HttpClient } from '@angular/common/http';
+import { Resolve } from '@angular/router';
+// import { Observable } from 'rxjs/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
-  info: Observable<Weather[]>;
+  info: any;
+  info2:any;
 
-  private url = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  private url = 'https://api.openweathermap.org/data/2.5/forecast?q=';
+  private url2 = 'https://api.openweathermap.org/data/2.5/weather?lat='
+  private key = '&appid=c67fa19d84e2c9b9a9ee2c6524e8367c';
 
   constructor(private http: HttpClient) { }
 
   public currentForecastCity(city: string) {
-    this.http.get(this.url + city + "&appid=57346ddfb71ab52306de15337ca1e356").subscribe(data => {
-      this.info = data as Observable<Weather[]>;
+    return this.http.get(this.url + city + this.key).subscribe(data => {
+      this.info = data as any;
       console.log(data);
     }, error => console.error(error));
+  }
+
+  public forecastForCurrentPosition(lat: number, lng: number){
+    return this.http.get<any>(this.url2 + lat + '&lon=' + lng + this.key).subscribe(x => {
+      this.info2 = x as any;
+      console.log(x)
+    }, error => console.error(error));
+  }
+  public returnList(): void{
+    return this.info
   }
 }
